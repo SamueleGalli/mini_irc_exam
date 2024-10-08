@@ -154,4 +154,6 @@ int main(int i, char **v)
         print_error("Fatal error");
     s->sock_len = sizeof(s->client);
     handling_host(s, ids);
+    close(s->sockfd);
+    free(s);
 }
