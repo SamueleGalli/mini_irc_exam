@@ -104,7 +104,7 @@ void    handling_host(t_server *s, int ids)
         s->fd_write = s->fds;
         //function to monitor fds to see if they need to write or read
         //oterwhise continue the loop indicating problem
-        if (select(s->max + 1, &(s->fd_read), &(s->fd_write), NULL, NULL) < 0)
+        if (select(s->max + 1, &(s->fd_read), &(s->fd_write), NULL, NULL) == -1)
             continue;
         //check if fd is read for reading
         for (int fd = 0; fd <= s->max; fd++)
